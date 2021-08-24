@@ -86,7 +86,9 @@ class RobotController:
             try:
                 self.socket.connect((self.address, 10000))
             except socket.timeout:
-                raise TimeoutError
+                print "TIMEOUT ERROR"
+                #raise TimeoutError
+                raise RuntimeError
 
             # Receive confirmation of connection
             if self.socket is None:
@@ -107,8 +109,8 @@ class RobotController:
                 print 'response: ', response
                 raise RuntimeError
 
-        except TimeoutError:
-            return False
+        #except TimeoutError:
+            #return False
         except RuntimeError:
             return False
 
@@ -196,7 +198,7 @@ class RobotController:
         for x in answer_list:                           #convert codes to search for in answer into comparable format
             response_list.append(str(x))
         error_found = False
-        error_list = [[str(i) for i in range(1000, 1039)]+[str(i)] for i in [3001,3003,3005,3009,3014,3026]]  #Make error codes in a comparable format
+        error_list = ['['+str(i)+']' for i in range(1000, 1039)]+['['+str(i)+']' for i in [3001,3003,3005,3009,3014,3026]]  #Make error codes in a comparable format
         self.socket.settimeout(delay)                   #set read timeout to desired delay
         while not response_found and not error_found:   #while no answers have been received, keep looking
             try:
