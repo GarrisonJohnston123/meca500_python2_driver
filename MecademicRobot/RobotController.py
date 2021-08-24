@@ -194,9 +194,9 @@ class RobotController:
         response_list = []
         response_found = False
         for x in answer_list:                           #convert codes to search for in answer into comparable format
-            response_list.append(f'[{str(x)}]')
+            response_list.append(str(x))
         error_found = False
-        error_list = [f'[{str(i)}]' for i in range(1000, 1039)]+[f'[{str(i)}]' for i in [3001,3003,3005,3009,3014,3026]]  #Make error codes in a comparable format
+        error_list = [[str(i) for i in range(1000, 1039)]+[str(i)] for i in [3001,3003,3005,3009,3014,3026]]  #Make error codes in a comparable format
         self.socket.settimeout(delay)                   #set read timeout to desired delay
         while not response_found and not error_found:   #while no answers have been received, keep looking
             try:
