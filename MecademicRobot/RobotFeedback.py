@@ -137,7 +137,8 @@ class RobotFeedback:
                     self._get_torque_ratio(response)
                     self._get_accelerometer(response)
         #except TimeoutError:
-            #pass
+        except RuntimeError:
+            pass
 
     def _get_robot_status(self, response):
         """Gets the values of RobotStatus bits from the message sent by
