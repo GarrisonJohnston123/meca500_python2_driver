@@ -78,7 +78,8 @@ class RobotFeedback:
             try:
                 self.socket.connect((self.address, 10001)) #connect to the robot's address
             except socket.timeout: #catch if the robot is not connected to in time
-                raise TimeoutError
+                #raise TimeoutError
+                raise RuntimeError
             # Receive confirmation of connection
             if self.socket is None: #check that socket is not connected to nothing
                 raise RuntimeError
@@ -93,8 +94,8 @@ class RobotFeedback:
                 return True
             except socket.timeout:
                 raise RuntimeError
-        except TimeoutError:
-            return False
+        #except TimeoutError:
+            #return False
         # OTHER USER !!!
         except RuntimeError:
             return False
@@ -135,8 +136,8 @@ class RobotFeedback:
                     self._get_joints_vel(response)
                     self._get_torque_ratio(response)
                     self._get_accelerometer(response)
-        except TimeoutError:
-            pass
+        #except TimeoutError:
+            #pass
 
     def _get_robot_status(self, response):
         """Gets the values of RobotStatus bits from the message sent by
