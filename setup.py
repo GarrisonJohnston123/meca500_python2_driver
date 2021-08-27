@@ -7,7 +7,7 @@ with open('README.md', 'r') as fh:
 setuptools.setup(
     name='MecademicRobot',
     version='1.0.2',
-    author='GarrisonJohnston',
+    author='Garrison Johnston',
     author_email='Garrison.L.Johnston@vanderbilt.edu',
     license='MIT',
     description='A package to control the Mecademic Robots through python2',
