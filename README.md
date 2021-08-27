@@ -1,5 +1,5 @@
 # Overview
-This repository contains a python package for controlling a Mecademic meca500 r3 robot. The repo builds on the [ROS package](https://github.com/Mecademic/python_driver) provided by the Mecademic company, but is written in python 2.7 instead of 3.6. The package is mainly used in the [meca500_python2_ros](https://github.com/GarrisonJohnston123/meca500_python2_ros) package.
+This repository contains a python package for controlling a Mecademic meca500 r3 robot. The repo builds on the [python package](https://github.com/Mecademic/python_driver) provided by the Mecademic company, but is written in python 2.7 instead of 3.6. The only functionality provided by the company that is not provided by thos package is for updating the firmware. This package is mainly used in the [meca500_python2_ros](https://github.com/GarrisonJohnston123/meca500_python2_ros) package.
 
 # Installation
 # First time installation
